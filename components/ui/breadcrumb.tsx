@@ -53,7 +53,7 @@ const BreadcrumbLink = React.forwardRef<
       className={cn("transition-colors hover:text-foreground", className)}
       {...props}
     >
-      {children ? children : <span className="sr-only">Breadcrumb link</span>}
+      {children || <span className="sr-only">Breadcrumb link</span>}
     </Comp>
   );
 });
@@ -72,7 +72,7 @@ const BreadcrumbPage = React.forwardRef<
     tabIndex={href ? undefined : -1}
     {...props}
   >
-    {children ? children : <span className="sr-only">Current page</span>}
+    {children || <span className="sr-only">Current page</span>}
   </a>
 ));
 BreadcrumbPage.displayName = "BreadcrumbPage";
