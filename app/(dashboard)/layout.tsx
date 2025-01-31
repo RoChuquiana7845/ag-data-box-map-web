@@ -1,11 +1,10 @@
-import type React from "react"
-import { ProtectedLayout } from "@/components/auth/protected-layout"
+import type React from "react";
+import { ProtectedLayout } from "@/components/auth/protected-layout";
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return <ProtectedLayout>{children}</ProtectedLayout>
+interface DashboardLayoutProps {
+  readonly children: React.ReactNode;
 }
 
+export default function DashboardLayout({ children }: DashboardLayoutProps) {
+  return <ProtectedLayout>{children}</ProtectedLayout>;
+}

@@ -1,10 +1,10 @@
-import type React from "react"
+import type React from "react";
 
-export default function AuthLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+interface AuthLayoutProps {
+  readonly children: React.ReactNode;
+}
+
+export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <div className="flex-1 relative min-h-[calc(100vh-4rem)]">
       {/* Background container */}
@@ -19,8 +19,9 @@ export default function AuthLayout({
       />
 
       {/* Content container with backdrop blur */}
-      <div className="relative z-10 w-full h-full flex items-center justify-center p-4">{children}</div>
+      <div className="relative z-10 w-full h-full flex items-center justify-center p-4">
+        {children}
+      </div>
     </div>
-  )
+  );
 }
-

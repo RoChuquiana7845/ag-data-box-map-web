@@ -4,10 +4,10 @@ import { useEffect, useState } from "react"
 import { motion, useAnimation } from "framer-motion"
 
 interface TypewriterEffectProps {
-  text: string
-  className?: string
-  delay?: number
-  speed?: number
+  readonly text: string
+  readonly className?: string
+  readonly delay?: number
+  readonly speed?: number
 }
 
 export function TypewriterEffect({ text, className = "", delay = 0, speed = 0.05 }: TypewriterEffectProps) {
