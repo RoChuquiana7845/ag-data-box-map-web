@@ -5,6 +5,8 @@ interface DashboardLayoutProps {
   readonly children: React.ReactNode;
 }
 
-export default function DashboardLayout({ children }: DashboardLayoutProps) {
+export default function DashboardLayout({
+  children,
+}: Readonly<DashboardLayoutProps>) {
   return <ProtectedLayout>{children}</ProtectedLayout>;
 }

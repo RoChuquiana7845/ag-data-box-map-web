@@ -16,7 +16,7 @@ interface RootLayoutProps {
   readonly children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>

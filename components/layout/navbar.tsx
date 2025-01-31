@@ -171,13 +171,10 @@ export function Navbar() {
                     variants={buttonHoverVariants}
                   >
                     <Button
-                      variant="secondary"
-                      className={cn(
-                        "space-x-2",
-                        pathname === "/auth/register" &&
-                          "bg-primary text-primary-foreground hover:bg-primary/90",
-                        pathname !== "/auth/register" && "hover:bg-secondary/80"
-                      )}
+                      variant={
+                        pathname === "/auth/register" ? "secondary" : "ghost"
+                      }
+                      className="space-x-2"
                     >
                       <UserPlus className="h-4 w-4" />
                       <span>Register</span>

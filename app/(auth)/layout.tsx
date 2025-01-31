@@ -4,7 +4,7 @@ interface AuthLayoutProps {
   readonly children: React.ReactNode;
 }
 
-export default function AuthLayout({ children }: AuthLayoutProps) {
+export default function AuthLayout({ children }: Readonly<AuthLayoutProps>) {
   return (
     <div className="flex-1 relative min-h-[calc(100vh-4rem)]">
       {/* Background container */}

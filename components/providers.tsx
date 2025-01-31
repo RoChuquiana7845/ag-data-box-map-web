@@ -7,7 +7,7 @@ interface ProvidersProps {
   readonly children: ReactNode;
 }
 
-export function Providers({ children }: ProvidersProps) {
+export function Providers({ children }: Readonly<ProvidersProps>) {
   return (
     <ThemeProvider
       attribute="class"
