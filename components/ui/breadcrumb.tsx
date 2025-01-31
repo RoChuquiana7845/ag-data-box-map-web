@@ -44,7 +44,7 @@ const BreadcrumbLink = React.forwardRef<
   React.ComponentPropsWithoutRef<"a"> & {
     asChild?: boolean;
   }
->(({ asChild, className, ...props }, ref) => {
+>(({ asChild, className, children, ...props }, ref) => {
   const Comp = asChild ? Slot : "a";
 
   return (
@@ -52,7 +52,9 @@ const BreadcrumbLink = React.forwardRef<
       ref={ref}
       className={cn("transition-colors hover:text-foreground", className)}
       {...props}
-    />
+    >
+      {children || <span className="sr-only">Breadcrumb link</span>}
+    </Comp>
   );
 });
 BreadcrumbLink.displayName = "BreadcrumbLink";
@@ -60,14 +62,16 @@ BreadcrumbLink.displayName = "BreadcrumbLink";
 const BreadcrumbPage = React.forwardRef<
   HTMLAnchorElement,
   React.ComponentPropsWithoutRef<"a">
->(({ className, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
   <a
     ref={ref}
     aria-disabled="true"
     aria-current="page"
     className={cn("font-normal text-foreground cursor-default", className)}
     {...props}
-  />
+  >
+    {children || <span className="sr-only">Current page</span>}
+  </a>
 ));
 BreadcrumbPage.displayName = "BreadcrumbPage";
 
@@ -81,7 +85,7 @@ const BreadcrumbSeparator = ({
     className={cn("[&>svg]:w-3.5 [&>svg]:h-3.5", className)}
     {...props}
   >
-    {children ?? <ChevronRight aria-hidden="true" />}
+    {children ?? <ChevronRight aria-hidden="true" focusable="false" />}
   </li>
 );
 BreadcrumbSeparator.displayName = "BreadcrumbSeparator";
@@ -95,7 +99,7 @@ const BreadcrumbEllipsis = ({
     className={cn("flex h-9 w-9 items-center justify-center", className)}
     {...props}
   >
-    <MoreHorizontal className="h-4 w-4" aria-hidden="true" />
+    <MoreHorizontal className="h-4 w-4" aria-hidden="true" focusable="false" />
     <span className="sr-only">More</span>
   </span>
 );
