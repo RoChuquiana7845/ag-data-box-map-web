@@ -34,8 +34,10 @@ const FormField = <
 >({
   ...props
 }: ControllerProps<TFieldValues, TName>) => {
+  const memoizedContextValue = React.useMemo(() => ({ name: props.name }), [props.name]);
+  
   return (
-    <FormFieldContext.Provider value={{ name: props.name }}>
+    <FormFieldContext.Provider value={memoizedContextValue}>
       <Controller {...props} />
     </FormFieldContext.Provider>
   )
@@ -78,8 +80,10 @@ const FormItem = React.forwardRef<
 >(({ className, ...props }, ref) => {
   const id = React.useId()
 
+  const memoizedContextValue = React.useMemo(() => ({ id }), [id]);
+
   return (
-    <FormItemContext.Provider value={{ id }}>
+    <FormItemContext.Provider value={memoizedContextValue}>
       <div ref={ref} className={cn("space-y-2", className)} {...props} />
     </FormItemContext.Provider>
   )
