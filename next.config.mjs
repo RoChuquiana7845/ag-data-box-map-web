@@ -2,7 +2,7 @@ let userConfig = undefined
 try {
   userConfig = await import('./v0-user-next.config')
 } catch (e) {
-  // ignore error
+  console.error("Error al importar userConfig:", e);
 }
 
 /** @type {import('next').NextConfig} */
